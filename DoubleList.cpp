@@ -81,7 +81,7 @@ int DoubleList::search(int data) {
         return -1;
     }
     node_double* searched = head;
-    int index = 0;
+    int index = 1;
     while(searched != nullptr) {
         if(searched->value == data) {
             return index;

@@ -26,7 +26,7 @@ void Ui(){
         switch(number){
             case 0:{
                 cout<<"Program zakonczony";
-                return ;
+                return;
             }
             case 1:{
                 bool start=true;
@@ -102,10 +102,14 @@ void Ui(){
                                     break;
                                 }
                                 case 1:{
-                                    cout<<"Podaj index do dodania: ";
+                                    cout<<"Podaj indeks do dodania: ";
                                     cin>>number;
                                     cout<<"Podaj liczbe całkowita: ";
                                     cin>>temp;
+                                    if(number>tab->get_size()){
+                                        cout<<endl<<"Brak takiego indeksu"<<endl<<endl;
+                                        break;
+                                    }
                                     tab->append(number-1,temp);
                                     cout<<endl<<"Dodano"<<endl<<endl;
                                     break;
@@ -143,8 +147,12 @@ void Ui(){
                                     break;
                                 }
                                 case 1:{
-                                    cout<<"Podaj index do usuniecia: ";
+                                    cout<<"Podaj indeks do usuniecia: ";
                                     cin>>number;
+                                    if(number>tab->get_size()) {
+                                        cout <<endl<< "Brak takiego indeksu" << endl << endl;
+                                        break;
+                                    }
                                     tab->del(number-1);
                                     cout<<endl<<"Usunieto"<<endl<<endl;
                                     break;
@@ -166,7 +174,10 @@ void Ui(){
                             break;
                         }
                         case 5:{
-
+                            int temp;
+                            cout<<"Podaj element do wyszukania: ";
+                            cin>>temp;
+                            cout<<"Element nr: "<<tab->search(temp)<<endl<<endl;
                             break;
                         }
                         case 6:{

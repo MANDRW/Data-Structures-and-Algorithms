@@ -94,7 +94,7 @@ int SingleListHT::search(int data)
     {
         if(node->value == data)
         {
-            return i;
+            return i+1;
         }
         node = node->next;
     }

@@ -94,7 +94,7 @@ int SingleListHead::search(int data) {
     }
     node_single*searched=head;
     for(int j=0;j<size;j++){
-        if(searched->value==data) return j;
+        if(searched->value==data) return j+1;
         searched=searched->next;
     }
     cout<<"Brak elementu"<<endl;
