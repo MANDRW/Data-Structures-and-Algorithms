@@ -16,7 +16,7 @@ public:
     void push_front(int data);
     void del_front(); 
     void del(int i);
-    node_double* search(int data);
+    int search(int data);
     void print_data();
     ~DoubleList();
 };

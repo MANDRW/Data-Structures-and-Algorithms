@@ -2,6 +2,8 @@
 #include "node_double.h"
 #include <iostream>
 
+using namespace std;
+
 DoubleList::DoubleList(){};
 
 void DoubleList::push_front(int data)
@@ -73,22 +75,23 @@ void DoubleList::del_back()
     size--;
 }
 
-node_double* DoubleList::search(int data)
+int DoubleList::search(int data)
 {
     if(head || tail == nullptr)
     {
-        return nullptr;
+        cout<<"Pusta lista"<<endl;
+        return 0;
     }
+    int i=0;
     node_double* searched = head;
     while(searched != nullptr)
     {
-        if(searched->value == data)
-        {
-            return searched;
-        }
+        if(searched->value == data) return i;
         searched = searched->next;
+        i++;
     }
-    return nullptr;
+    cout<<"Brak takiego elementu"<<endl;
+    return 0;
 }
 
 void DoubleList::append(int i, int data)
