@@ -78,7 +78,7 @@ void SingleListHead::del(int i) {
 }
 
  int SingleListHead::get(int i) {
-    if(i>size or head==NULL) return -1;
+    if(i>size or head==NULL) return 0;
      node_single *old=head;
      for(int j=0;j<i;j++) old=old->next;
      return old->value;
