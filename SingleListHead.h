@@ -14,7 +14,7 @@ public:
     void push_front(int data);
     void del_front();
     void del(int i);
-    node_single* search(int data);
+    int search(int data);
     int get(int i);
     int get_size();
     ~SingleListHead();

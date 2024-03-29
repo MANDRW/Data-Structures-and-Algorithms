@@ -1,5 +1,8 @@
 #include "SingleListHead.h"
 #include "node_single.h"
+#include <iostream>
+
+using namespace std;
 
 SingleListHead::SingleListHead(){};
 
@@ -78,20 +81,24 @@ void SingleListHead::del(int i) {
 }
 
  int SingleListHead::get(int i) {
-    if(i>size or head==NULL) return 0;
+    if(i>size or head==NULL) return -1;
      node_single *old=head;
      for(int j=0;j<i;j++) old=old->next;
      return old->value;
 }
 
-node_single* SingleListHead::search(int data) {
-    if(head==NULL) return nullptr;
+int SingleListHead::search(int data) {
+    if(head==NULL) {
+        cout<<"Pusta lista"<<endl;
+        return -1;
+    }
     node_single*searched=head;
     for(int j=0;j<size;j++){
-        if(searched->value==data) return searched;
+        if(searched->value==data) return j;
         searched=searched->next;
     }
-    return searched;
+    cout<<"Brak elementu"<<endl;
+    return -1;
 }
 
 int SingleListHead::get_size() {

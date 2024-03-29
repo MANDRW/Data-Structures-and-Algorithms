@@ -75,23 +75,24 @@ void DoubleList::del_back()
     size--;
 }
 
-int DoubleList::search(int data)
-{
-    if(head || tail == nullptr)
-    {
-        cout<<"Pusta lista"<<endl;
-        return 0;
+int DoubleList::search(int data) {
+    if(head == nullptr || tail == nullptr) {
+        cout << "Pusta lista" << endl;
+        return -1;
     }
-    int i=0;
     node_double* searched = head;
-    while(searched != nullptr)
-    {
-        if(searched->value == data) return i;
+    int index = 0;
+    while(searched != nullptr) {
+        if(searched->value == data) {
+            return index;
+        }
         searched = searched->next;
-        i++;
+        index++;
     }
-    cout<<"Brak takiego elementu"<<endl;
-    return 0;
+
+    cout << "Brak elementu" << endl;
+    return -1;
+
 }
 
 void DoubleList::append(int i, int data)

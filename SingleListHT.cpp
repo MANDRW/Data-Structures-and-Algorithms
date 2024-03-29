@@ -1,5 +1,8 @@
 #include "SingleListHT.h"
 #include "node_single.h"
+#include <iostream>
+
+using namespace std;
 
 SingleListHT::SingleListHT(){}
 
@@ -79,22 +82,24 @@ void SingleListHT::del_back()
     size--;
 }
 
-node_single* SingleListHT::search(int data)
+int SingleListHT::search(int data)
 {
     if (head == nullptr)
     {
-        return nullptr;
+        cout<<"Pusta lista"<<endl;
+        return -1;
     }
     node_single* node = head;
     for(int i; i < size; i++)
     {
         if(node->value == data)
         {
-            return node;
+            return i;
         }
         node = node->next;
     }
-    return node;
+    cout<<"Brak elementu"<<endl;
+    return -1;
 }
 
 void SingleListHT::append(int i, int data)
