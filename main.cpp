@@ -73,8 +73,7 @@ int main()
     List.del(1);
     cout<<endl;
     for(int i=0;i<List.get_size();i++) cout<<List.get(i)<<" ";
-    cout<<endl;
-    List.~SingleListHead();*/
+    cout<<endl;*/
     Ui();
     return(0);
 }

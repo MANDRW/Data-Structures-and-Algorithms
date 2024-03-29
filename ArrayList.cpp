@@ -69,7 +69,8 @@ int ArrayList::search(int data) {
     for(int i=0;i<size;i++){
         if(tab[i]==data) return i;
     }
-    return -1;
+    cout<<"Brak takiego elementu"<<endl;
+    return 0;
 }
 
 int ArrayList::get(int i){

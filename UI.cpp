@@ -3,11 +3,14 @@
 #include<cstdlib>
 #include<ctime>
 #include<cstdio>
+#include<fstream>
+#include <string>
 #include "ArrayList.h"
 #include "SingleListHead.h"
 #include "SingleListHT.h"
 #include "DoubleList.h"
 using namespace std;
+
 void Ui(){
     while(true){
         int number;
@@ -16,14 +19,184 @@ void Ui(){
         cout<<"[2] Lista jednokierunkowa z headem"<<endl;
         cout<<"[3] Lista jednokierunkowa z headem i tailem"<<endl;
         cout<<"[4] Lista dwukierunkowa"<<endl;
-        cout<<endl<<"[0] Zakoncz"<<endl<<endl;
-        cout<<"Wybor: "<<endl;
+        cout<<"[0] Zakoncz"<<endl<<endl;
+        cout<<"Wybor: ";
         cin>>number;
         cout<<endl;
         switch(number){
             case 0:{
-                cout<<"END";
+                cout<<"Program zakonczony";
                 return ;
+            }
+            case 1:{
+                bool start=true;
+                ArrayList*tab=new ArrayList;
+                while(start==1){
+                    cout<<"Tablica dynamiczna"<<endl<<endl;
+                    cout<<"[1] Zbuduj z pliku"<<endl;
+                    cout<<"[2] Utworz losowo"<<endl;
+                    cout<<"[3] Dodaj element"<<endl;
+                    cout<<"[4] Usun element"<<endl;
+                    cout<<"[5] Znajdz element"<<endl;
+                    cout<<"[6] Wyswietl"<<endl;
+                    cout<<"[0] Wroc do menu"<<endl<<endl;
+                    cout<<"Wybor: ";
+                    cin>>number;
+                    cout<<endl;
+                    switch (number) {
+                        case 0:{
+                            start=false;
+                            delete tab;
+                            break;
+                        }
+                        case 1:{
+                            string name="";
+                            cout<<"Podaj nazwe pliku: ";
+                            cin>>name;
+                            cout<<"Podaj ilość danych: ";
+                            cin>>number;
+                            cout<<endl;
+                            if(tab->get_size()!=0){
+                                delete tab;
+                                ArrayList*temp=new ArrayList(number);
+                                tab=temp;
+                            }
+                            fstream file;
+                            file.open(name,ios::in);
+                            for(int i=0;number>i and file.eof()!=1;i++){
+                                int temp;
+                                file>>temp;
+                                tab->push_back(temp);
+                            }
+                            file.close();
+                            cout<<endl<<"Wczytano"<<endl<<endl;
+                            break;
+                        }
+                        case 2:{
+                            srand(time(NULL));
+                            cout<<"Podaj ilość danych: ";
+                            cin>>number;
+                            if(tab->get_size()!=0){
+                                delete tab;
+                                ArrayList*temp=new ArrayList(number);
+                                tab=temp;
+                            }
+                            int max;
+                            cout<<"Podaj najwieksza mozliwa liczbe: ";
+                            cin>>max;
+                            for(int i=0;number>i;i++) tab->push_back(rand()%(2*max+1)-max);
+                            cout<<endl<<"Wygenerowano z liczb z przedzialu <-"<<max<<","<<max<<">"<<endl<<endl;
+                            break;
+                        }
+                        case 3:{
+                            int temp;
+                            cout<<"Dodawanie: "<<endl<<endl;
+                            cout<<"[1] Dodaj"<<endl;
+                            cout<<"[2] Dodaj na poczatek"<<endl;
+                            cout<<"[3] Dodaj na koniec"<<endl;
+                            cout<<"[0] Cofnij"<<endl<<endl;
+                            cout<<"Wybor: ";
+                            cin>>number;
+                            switch (number) {
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    cout<<"Podaj index do dodania: ";
+                                    cin>>number;
+                                    cout<<"Podaj liczbe całkowita: ";
+                                    cin>>temp;
+                                    tab->append(number-1,temp);
+                                    cout<<endl<<"Dodano"<<endl<<endl;
+                                    break;
+                                }
+                                case 2:{
+                                    cout<<"Podaj liczbe całkowita: ";
+                                    cin>>temp;
+                                    tab->push_front(temp);
+                                    cout<<endl<<"Dodano"<<endl<<endl;
+                                    break;
+                                }
+                                case 3:{
+                                    cout<<"Podaj liczbe całkowita: ";
+                                    cin>>temp;
+                                    tab->push_back(temp);
+                                    cout<<endl<<"Dodano"<<endl<<endl;
+                                    break;
+                                }
+                                default:{
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        case 4:{
+                            cout<<"Usuwanie: "<<endl<<endl;
+                            cout<<"[1] Usun"<<endl;
+                            cout<<"[2] Usun na poczatku"<<endl;
+                            cout<<"[3] Usun na koncu"<<endl;
+                            cout<<"[0] Cofnij"<<endl<<endl;
+                            cout<<"Wybor: ";
+                            cin>>number;
+                            switch (number) {
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    cout<<"Podaj index do usuniecia: ";
+                                    cin>>number;
+                                    tab->del(number-1);
+                                    cout<<endl<<"Usunieto"<<endl<<endl;
+                                    break;
+                                }
+                                case 2:{
+                                    tab->del_front();
+                                    cout<<endl<<"Usunieto"<<endl<<endl;
+                                    break;
+                                }
+                                case 3:{
+                                    tab->del_back();
+                                    cout<<endl<<"Dodano"<<endl<<endl;
+                                    break;
+                                }
+                                default:{
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        case 5:{
+
+                            break;
+                        }
+                        case 6:{
+                            for(int i=0;tab->get_size()>i;i++)
+                                cout<<tab->get(i)<<endl;
+                            cout<<endl;
+                            break;
+                        }
+                        default:{
+                            start=false;
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+            case 2:{
+
+                break;
+            }
+            case 3:{
+
+                break;
+            }
+            case 4:{
+
+                break;
+            }
+            default:{
+                break;
             }
         }
 
