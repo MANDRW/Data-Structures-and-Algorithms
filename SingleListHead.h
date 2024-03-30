@@ -17,6 +17,7 @@ public:
     int search(int data);
     int get(int i);
     int get_size();
+    void print();
     ~SingleListHead();
 
 };

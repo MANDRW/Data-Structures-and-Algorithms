@@ -81,7 +81,7 @@ void SingleListHead::del(int i) {
 }
 
  int SingleListHead::get(int i) {
-    if(i>size or head==NULL) return -1;
+    if(i>size or head==NULL) return 0;
      node_single *old=head;
      for(int j=0;j<i;j++) old=old->next;
      return old->value;
@@ -90,7 +90,7 @@ void SingleListHead::del(int i) {
 int SingleListHead::search(int data) {
     if(head==NULL) {
         cout<<"Pusta lista"<<endl;
-        return -1;
+        return 0;
     }
     node_single*searched=head;
     for(int j=0;j<size;j++){
@@ -98,11 +98,23 @@ int SingleListHead::search(int data) {
         searched=searched->next;
     }
     cout<<"Brak elementu"<<endl;
-    return -1;
+    return 0;
 }
 
 int SingleListHead::get_size() {
     return size;
+}
+
+void SingleListHead::print() {
+    if(head==NULL) {
+        cout<<"Pusta lista"<<endl;
+        return;
+    }
+    node_single *old=head;
+    for(int j=0;j<size;j++) {
+        cout<<old->value<<endl;
+        old=old->next;
+    }
 }
 
 SingleListHead::~SingleListHead() {
