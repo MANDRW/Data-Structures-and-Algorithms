@@ -232,7 +232,7 @@ void Ui(){
                             for(int i=0;number>i and file.eof()!=1;i++){
                                 int temp;
                                 file>>temp;
-                                tab->push_front(temp);
+                                tab->push_back(temp);
                             }
                             file.close();
                             cout<<endl<<"Wczytano"<<endl<<endl;
