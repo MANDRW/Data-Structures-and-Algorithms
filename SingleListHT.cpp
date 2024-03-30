@@ -156,7 +156,10 @@ void SingleListHT::del(int i)
     delete temp;
     size--;
 }
-
+int SingleListHT::get_size()
+{
+    return size;
+}
 SingleListHT::~SingleListHT() {
     while (head != nullptr) 
     {

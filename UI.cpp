@@ -199,6 +199,71 @@ void Ui(){
                 break;
             }
             case 3:{
+                bool start = true;
+                SingleListHT* slht = new SingleListHT;
+                while(start == true)
+                {
+                    cout<<"Lista jednokierunkowa z headem i tailem"<<endl<<endl;
+                    cout<<"[1] Zbuduj z pliku"<<endl;
+                    cout<<"[2] Utworz losowo"<<endl;
+                    cout<<"[3] Dodaj element"<<endl;
+                    cout<<"[4] Usun element"<<endl;
+                    cout<<"[5] Znajdz element"<<endl;
+                    cout<<"[6] Wyswietl"<<endl;
+                    cout<<"[0] Wroc do menu"<<endl<<endl;
+                    cout<<"Wybor: ";
+                    cin>>number;
+                    cout<<endl;
+                    switch (number) {
+                        case 0:
+                        {
+                            start = false;
+                            delete slht;
+                            break;
+                        }
+                        case 1:{
+                            break;
+                        }
+                        case 2:{
+                            break;
+                        }
+                        case 3:{
+                            int temp;
+                            cout<<"Dodawanie: "<<endl<<endl;
+                            cout<<"[1] Dodaj w podanym miejscu"<<endl;
+                            cout<<"[2] Dodaj na poczatek"<<endl;
+                            cout<<"[3] Dodaj na koniec"<<endl;
+                            cout<<"[0] Cofnij"<<endl<<endl;
+                            cout<<"Wybor: ";
+                            cin>>number;
+                            switch (number) {
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    cout << "Podaj wartość do dodania" << endl;
+                                    cin >> temp;
+                                    cout << "Podaj numer indeksu" << endl;
+                                    cout << "Od 0 do " << slht->get_size() << endl;
+                                    cin >> number;
+                                    break;
+                                }
+                                case 2:{
+                                    cout << "Podaj wartość do dodania" << endl;
+                                    cin >> temp;
+                                    slht->push_front(temp);
+                                    cout <<endl<<"Poprawnie dodano" << endl << endl;
+                                }
+                                case 3:{
+                                    cout << "Podaj wartość do dodania na koniec" << endl;
+                                    cin >> temp;
+                                    slht->push_back(temp);
+                                    cout << endl << " Poprawnie dodano wartość" << endl << endl;
+                                }
+                        }
+                    }
+
+                }
 
                 break;
             }

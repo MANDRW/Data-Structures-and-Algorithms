@@ -15,6 +15,7 @@ public:
     void del_front();
     void del(int i);
     int search(int data);
+    int get_size();
     ~SingleListHT();
 };
 
