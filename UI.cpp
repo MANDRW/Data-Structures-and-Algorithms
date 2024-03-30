@@ -214,7 +214,7 @@ void Ui(){
                     cout<<"Wybor: ";
                     cin>>number;
                     cout<<endl;
-                    switch (number) {
+                    switch(number) {
                         case 0:
                         {
                             start = false;
@@ -222,6 +222,23 @@ void Ui(){
                             break;
                         }
                         case 1:{
+                            string name = "";
+                            cout << "Podaj nazwe pliku z ktorego chcesz pobierac dane" << endl;
+                            cin >> name;
+                            cout << "Podaj ilosc danych ktore chcesz pobrac" << endl;
+                            cin >> number;
+                            cout << endl;
+                            if(slht->get_size() != 0){
+                               delete slht;
+                               SingleListHT* slht = new SingleListHT;
+                            }
+                            fstream file;
+                            file.open(name,ios::in);
+                            for(int i = 0; number>i and file.eof()!=1;i++){
+                                int temp;
+                                file>>temp;
+                                slht->push_back(temp);
+                            }
                             break;
                         }
                         case 2:{
@@ -241,25 +258,91 @@ void Ui(){
                                     break;
                                 }
                                 case 1:{
-                                    cout << "Podaj wartość do dodania" << endl;
+                                    cout << "Podaj wartosc do dodania" << endl;
                                     cin >> temp;
                                     cout << "Podaj numer indeksu" << endl;
                                     cout << "Od 0 do " << slht->get_size() << endl;
                                     cin >> number;
+                                    if(number > slht->get_size())
+                                    {
+                                        cout << "Index poza wielkoscia tablicy" << endl;
+                                        break;
+                                    }
+                                    slht->append(number,temp);
+                                    cout << "Poprawnie dodano" << endl << endl;
                                     break;
                                 }
                                 case 2:{
-                                    cout << "Podaj wartość do dodania" << endl;
+                                    cout << "Podaj wartosc do dodania" << endl;
                                     cin >> temp;
                                     slht->push_front(temp);
                                     cout <<endl<<"Poprawnie dodano" << endl << endl;
+                                    break;
                                 }
                                 case 3:{
                                     cout << "Podaj wartość do dodania na koniec" << endl;
                                     cin >> temp;
                                     slht->push_back(temp);
-                                    cout << endl << " Poprawnie dodano wartość" << endl << endl;
+                                    cout << endl << " Poprawnie dodano wartosc" << endl << endl;
+                                    break;
                                 }
+                            }
+                        }
+                        case 4:{
+                            cout<<"Usuwanie: "<<endl<<endl;
+                            cout<<"[1] Usun"<<endl;
+                            cout<<"[2] Usun na poczatku"<<endl;
+                            cout<<"[3] Usun na koncu"<<endl;
+                            cout<<"[0] Cofnij"<<endl<<endl;
+                            cout<<"Wybor: ";
+                            cin>>number;
+                            switch (number){
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    cout << "Podaj indeks który chcesz usunac" << endl;
+                                    cin >> number;
+                                    if(number > slht->get_size())
+                                    {
+                                        cout << "Index poza wielkoscia tablicy" << endl;
+                                        break;
+                                    }
+                                    slht->del(number);
+                                    cout << "Poprawnie usunieto" << endl << endl;
+                                    break;
+                                }
+                                case 2:{
+                                    if(slht->get_size() == 0)
+                                    {
+                                        cout << "Lista jest pusta" << endl << endl;
+                                    }
+                                    slht->del_front();
+                                    cout << "Poprawnie usunieto" << endl << endl;
+                                    break;
+                                }
+                                case 3:{
+                                    if(slht->get_size() == 0)
+                                    {
+                                        cout << "Lista jest pusta" << endl << endl;
+                                    }
+                                    slht->del_back();
+                                    cout << "Poprawnie usunieto" << endl << endl;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        case 5:{
+                            int temp;
+                            cout << "Podaj element który chcesz wyszukać" << endl;
+                            cin >> temp;
+                            cout << "index elementu: " << slht->search(temp) << endl << endl;
+                            break;
+                        }
+                        case 6:{
+                            slht->print_all();
+                            break;
                         }
                     }
 

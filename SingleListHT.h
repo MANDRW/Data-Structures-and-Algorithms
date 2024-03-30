@@ -16,6 +16,7 @@ public:
     void del(int i);
     int search(int data);
     int get_size();
+    void print_all();
     ~SingleListHT();
 };
 

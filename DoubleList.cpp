@@ -189,7 +189,7 @@ void DoubleList::print_data()
     node_double* searched = head;
     while(searched != nullptr)
     {
-        std::cout << searched->value;
+        std::cout << searched->value << " ";
         searched = searched->next;
     }
     return;

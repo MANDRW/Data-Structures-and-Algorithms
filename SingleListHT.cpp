@@ -4,7 +4,9 @@
 
 using namespace std;
 
-SingleListHT::SingleListHT(){}
+SingleListHT::SingleListHT(){
+    size = 0;
+}
 
 void SingleListHT::push_front(int data)
 {
@@ -159,6 +161,17 @@ void SingleListHT::del(int i)
 int SingleListHT::get_size()
 {
     return size;
+}
+void SingleListHT::print_all()
+{
+    node_single* searched = head;
+    {
+        while(searched != nullptr)
+        {
+            std::cout << searched->value << " ";
+            searched = searched->next;
+        }
+    }
 }
 SingleListHT::~SingleListHT() {
     while (head != nullptr) 
