@@ -164,7 +164,7 @@ void Ui(){
                                 }
                                 case 3:{
                                     tab->del_back();
-                                    cout<<endl<<"Dodano"<<endl<<endl;
+                                    cout<<endl<<"Usunieto"<<endl<<endl;
                                     break;
                                 }
                                 default:{
@@ -330,7 +330,7 @@ void Ui(){
                                 }
                                 case 3:{
                                     tab->del_back();
-                                    cout<<endl<<"Dodano"<<endl<<endl;
+                                    cout<<endl<<"Usunieto"<<endl<<endl;
                                     break;
                                 }
                                 default:{
