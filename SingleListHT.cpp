@@ -92,7 +92,7 @@ int SingleListHT::search(int data)
         return 0;
     }
     node_single* node = head;
-    for(int i; i < size; i++)
+    for(int i = 1; i <= size; i++)
     {
         if(node->value == data)
         {
