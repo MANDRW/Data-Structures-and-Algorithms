@@ -404,6 +404,19 @@ void Ui(){
                             break;
                         }
                         case 2:{
+                            srand(time(NULL));
+                            cout<<"Podaj ilość danych: ";
+                            cin>>number;
+                            if(slht->get_size()!=0){
+                                delete slht;
+                                SingleListHT*temp=new SingleListHT;
+                                slht=temp;
+                            }
+                            int max;
+                            cout<<"Podaj najwieksza mozliwa liczbe: ";
+                            cin>>max;
+                            for(int i=0;number>i;i++) slht->push_front(rand()%(2*max+1)-max);
+                            cout<<endl<<"Wygenerowano z liczb z przedzialu <-"<<max<<","<<max<<">"<<endl<<endl;
                             break;
                         }
                         case 3:{
@@ -513,7 +526,166 @@ void Ui(){
                 break;
             }
             case 4:{
-
+                bool start = true;
+                DoubleList* dl = new DoubleList;
+                while(start == true)
+                {
+                    cout<<"Lista dwukierunkowa"<<endl<<endl;
+                    cout<<"[1] Zbuduj z pliku"<<endl;
+                    cout<<"[2] Utworz losowo"<<endl;
+                    cout<<"[3] Dodaj element"<<endl;
+                    cout<<"[4] Usun element"<<endl;
+                    cout<<"[5] Znajdz element"<<endl;
+                    cout<<"[6] Wyswietl"<<endl;
+                    cout<<"[0] Wroc do menu"<<endl<<endl;
+                    cout<<"Wybor: ";
+                    cin>>number;
+                    cout<<endl;
+                    switch(number) {
+                        case 0:
+                        {
+                            start = false;
+                            delete dl;
+                            break;
+                        }
+                        case 1:{
+                            string name = "";
+                            cout << "Podaj nazwe pliku z ktorego chcesz pobierac dane" << endl;
+                            cin >> name;
+                            cout << "Podaj ilosc danych ktore chcesz pobrac" << endl;
+                            cin >> number;
+                            cout << endl;
+                            if(dl->get_size() != 0){
+                               delete dl;
+                               DoubleList* dl = new DoubleList;
+                            }
+                            fstream file;
+                            file.open(name,ios::in);
+                            for(int i = 0; number>i and file.eof()!=1;i++){
+                                int temp;
+                                file>>temp;
+                                dl->push_back(temp);
+                            }
+                            break;
+                        }
+                        case 2:{
+                            srand(time(NULL));
+                            cout<<"Podaj ilość danych: ";
+                            cin>>number;
+                            if(dl->get_size()!=0){
+                                delete dl;
+                                DoubleList*temp=new DoubleList;
+                                dl=temp;
+                            }
+                            int max;
+                            cout<<"Podaj najwieksza mozliwa liczbe: ";
+                            cin>>max;
+                            for(int i=0;number>i;i++) dl->push_front(rand()%(2*max+1)-max);
+                            cout<<endl<<"Wygenerowano z liczb z przedzialu <-"<<max<<","<<max<<">"<<endl<<endl;
+                            break;
+                        }
+                        case 3:{
+                            int temp;
+                            cout<<"Dodawanie: "<<endl<<endl;
+                            cout<<"[1] Dodaj w podanym miejscu"<<endl;
+                            cout<<"[2] Dodaj na poczatek"<<endl;
+                            cout<<"[3] Dodaj na koniec"<<endl;
+                            cout<<"[0] Cofnij"<<endl<<endl;
+                            cout<<"Wybor: ";
+                            cin>>number;
+                            switch (number) {
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    cout << "Podaj wartosc do dodania" << endl;
+                                    cin >> temp;
+                                    cout << "Podaj numer indeksu" << endl;
+                                    cout << "Od 0 do " << dl->get_size() << endl;
+                                    cin >> number;
+                                    if(number > dl->get_size())
+                                    {
+                                        cout << "Index poza wielkoscia tablicy" << endl;
+                                        break;
+                                    }
+                                    dl->append(number,temp);
+                                    cout << "Poprawnie dodano" << endl << endl;
+                                    break;
+                                }
+                                case 2:{
+                                    cout << "Podaj wartosc do dodania" << endl;
+                                    cin >> temp;
+                                    dl->push_front(temp);
+                                    cout <<endl<<"Poprawnie dodano" << endl << endl;
+                                    break;
+                                }
+                                case 3:{
+                                    cout << "Podaj wartość do dodania na koniec" << endl;
+                                    cin >> temp;
+                                    dl->push_back(temp);
+                                    cout << endl << " Poprawnie dodano wartosc" << endl << endl;
+                                    break;
+                                }
+                            }
+                        }
+                        case 4:{
+                            cout<<"Usuwanie: "<<endl<<endl;
+                            cout<<"[1] Usun"<<endl;
+                            cout<<"[2] Usun na poczatku"<<endl;
+                            cout<<"[3] Usun na koncu"<<endl;
+                            cout<<"[0] Cofnij"<<endl<<endl;
+                            cout<<"Wybor: ";
+                            cin>>number;
+                            switch (number){
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    cout << "Podaj indeks który chcesz usunac" << endl;
+                                    cin >> number;
+                                    if(number > dl->get_size())
+                                    {
+                                        cout << "Index poza wielkoscia tablicy" << endl;
+                                        break;
+                                    }
+                                    dl->del(number);
+                                    cout << "Poprawnie usunieto" << endl << endl;
+                                    break;
+                                }
+                                case 2:{
+                                    if(dl->get_size() == 0)
+                                    {
+                                        cout << "Lista jest pusta" << endl << endl;
+                                    }
+                                    dl->del_front();
+                                    cout << "Poprawnie usunieto" << endl << endl;
+                                    break;
+                                }
+                                case 3:{
+                                    if(dl->get_size() == 0)
+                                    {
+                                        cout << "Lista jest pusta" << endl << endl;
+                                    }
+                                    dl->del_back();
+                                    cout << "Poprawnie usunieto" << endl << endl;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        case 5:{
+                            int temp;
+                            cout << "Podaj element który chcesz wyszukać" << endl;
+                            cin >> temp;
+                            cout << "index elementu: " << dl->search(temp) << endl << endl;
+                            break;
+                        }
+                        case 6:{
+                            dl->print_data();
+                            break;
+                        }
+                    }
+                }
                 break;
             }
             default:{

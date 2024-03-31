@@ -195,6 +195,11 @@ void DoubleList::print_data()
     return;
 }
 
+int DoubleList::get_size()
+{
+    return size;
+}
+
 DoubleList::~DoubleList() {
     while (head != nullptr)
     {

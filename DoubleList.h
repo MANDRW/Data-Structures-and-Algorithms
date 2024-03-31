@@ -18,6 +18,7 @@ public:
     void del(int i);
     int search(int data);
     void print_data();
+    int get_size();
     ~DoubleList();
 };
 #endif
