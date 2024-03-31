@@ -112,7 +112,7 @@ void SingleListHead::print() {
     }
     node_single *old=head;
     for(int j=0;j<size;j++) {
-        cout<<old->value<<endl;
+        cout<<old->value<<"; ";
         old=old->next;
     }
     cout<<endl;

@@ -168,7 +168,7 @@ void SingleListHT::print()
     {
         while(searched != nullptr)
         {
-            std::cout << searched->value << " ";
+            std::cout << searched->value << "; ";
             searched = searched->next;
         }
     }

@@ -91,7 +91,7 @@ void ArrayList::set(int i, int data) {
 
 void ArrayList::print() {
     for(int i=0;size>i;i++)
-        cout<<tab[i]<<endl;
+        cout<<tab[i]<<"; ";
     cout<<endl;
 }
 
