@@ -8,17 +8,17 @@ private:
     node_single*head=NULL;
     int size=0;
 public:
-    SingleListHead();
+    SingleListHead();//constructor
     void append(int i,int data);
     void push_back(int data);
     void del_back();
     void push_front(int data);
     void del_front();
     void del(int i);
-    int search(int data);
+    int search(int data);//finding index of first element with data value
     int get(int i);
     int get_size();
-    void print();
+    void print();//printing all elements in array list
     ~SingleListHead();
 
 };

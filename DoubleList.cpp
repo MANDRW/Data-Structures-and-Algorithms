@@ -78,7 +78,7 @@ void DoubleList::del_back()
 int DoubleList::search(int data) {
     if(head == nullptr || tail == nullptr) {
         cout << "Pusta lista" << endl;
-        return -1;
+        return 0;
     }
     node_double* searched = head;
     int index = 1;
@@ -91,7 +91,7 @@ int DoubleList::search(int data) {
     }
 
     cout << "Brak elementu" << endl;
-    return -1;
+    return 0;
 
 }
 
