@@ -4,14 +4,14 @@
 
 using namespace std;
 
-SingleListHead::SingleListHead(){};
+SingleListHead::SingleListHead(){};//constructor without arguments
 
 void SingleListHead::append(int i, int data) {
-    if(i==0){
+    if(i==0){//when i==0 faster option is usinh push front than loop
         push_front(data);
         return;
     }
-    if(i==size-1) push_back(data);
+    if(i==size) push_back(data);
     else{
         node_single*old=head;
         for(int j=0;j<i-1;j++) old=old->next;
