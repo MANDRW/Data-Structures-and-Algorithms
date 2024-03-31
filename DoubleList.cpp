@@ -192,7 +192,7 @@ void DoubleList::print()
         std::cout << searched->value << " ";
         searched = searched->next;
     }
-    return;
+    std::cout<<endl;
 }
 
 int DoubleList::get_size()

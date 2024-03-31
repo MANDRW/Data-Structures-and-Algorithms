@@ -172,6 +172,7 @@ void SingleListHT::print()
             searched = searched->next;
         }
     }
+    cout<<endl;
 }
 SingleListHT::~SingleListHT() {
     while (head != nullptr) 

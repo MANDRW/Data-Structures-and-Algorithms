@@ -275,7 +275,6 @@ void Ui() {
                 }
                 case 6: {
                     tab->print();
-                    cout << endl;
                     break;
                 }
                 default: {

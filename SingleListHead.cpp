@@ -115,6 +115,7 @@ void SingleListHead::print() {
         cout<<old->value<<endl;
         old=old->next;
     }
+    cout<<endl;
 }
 
 SingleListHead::~SingleListHead() {
