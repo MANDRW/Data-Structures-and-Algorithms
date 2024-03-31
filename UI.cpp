@@ -199,7 +199,7 @@ void Ui() {
                             cin >> number;
                             cout << "Podaj liczbe całkowita: ";
                             cin >> temp;
-                            if (number > tab->get_size() or number == 0) {
+                            if (number > tab->get_size() + 1 or number <= 0) {
                                 cout << endl << "Brak takiego indeksu (iteracja zaczyna sie od 1)" << endl << endl;
                                 break;
                             }
