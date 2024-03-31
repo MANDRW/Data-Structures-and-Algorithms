@@ -270,7 +270,7 @@ void Ui() {
                     int temp;
                     cout << "Podaj element do wyszukania: ";
                     cin >> temp;
-                    cout << "Element nr: " << tab->search(temp) << endl << endl;
+                    cout << "Numer pierwszego znalezionego elementu: " << tab->search(temp) << endl << endl;
                     break;
                 }
                 case 6: {
