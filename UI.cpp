@@ -200,7 +200,7 @@ void Ui() {
                             cout << "Podaj liczbe całkowita: ";
                             cin >> temp;
                             if (number > tab->get_size() or number == 0) {
-                                cout << endl << "Brak takiego indeksu" << endl << endl;
+                                cout << endl << "Brak takiego indeksu (iteracja zaczyna sie od 1)" << endl << endl;
                                 break;
                             }
                             tab->append(number - 1, temp);
@@ -242,8 +242,8 @@ void Ui() {
                         case 1: {
                             cout << "Podaj indeks do usuniecia: ";
                             cin >> number;
-                            if (number > tab->get_size()) {
-                                cout << endl << "Brak takiego indeksu" << endl << endl;
+                            if (number > tab->get_size()or number==0) {
+                                cout << endl << "Brak takiego indeksu (iteracja zaczyna sie od 1)"<< endl << endl;
                                 break;
                             }
                             tab->del(number - 1);
