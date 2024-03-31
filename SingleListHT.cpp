@@ -89,19 +89,19 @@ int SingleListHT::search(int data)
     if (head == nullptr)
     {
         cout<<"Pusta lista"<<endl;
-        return -1;
+        return 0;
     }
     node_single* node = head;
     for(int i; i < size; i++)
     {
         if(node->value == data)
         {
-            return i+1;
+            return i;
         }
         node = node->next;
     }
     cout<<"Brak elementu"<<endl;
-    return -1;
+    return 0;
 }
 
 void SingleListHT::append(int i, int data)
