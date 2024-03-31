@@ -184,7 +184,7 @@ void DoubleList::del(int i)
 
 }
 
-void DoubleList::print_data()
+void DoubleList::print()
 {
     node_double* searched = head;
     while(searched != nullptr)

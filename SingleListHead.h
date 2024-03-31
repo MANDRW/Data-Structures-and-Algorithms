@@ -1,8 +1,9 @@
 #ifndef MAIN_CPP_SINGLELISTHEAD_H
 #define MAIN_CPP_SINGLELISTHEAD_H
 #include "node_single.h"
+#include "base.h"
 #include <iostream>
-class SingleListHead{
+class SingleListHead:public Base{
 private:
     node_single*head=NULL;
     int size=0;

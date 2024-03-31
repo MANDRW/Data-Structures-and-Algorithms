@@ -1,7 +1,8 @@
 #ifndef MAIN_CPP_ARRAYLIST_H
 #define MAIN_CPP_ARRAYLIST_H
+#include "base.h"
 #include<iostream>
-class ArrayList{
+class ArrayList:public Base{
 private:
     int*tab = NULL;
     int size;
@@ -21,6 +22,7 @@ public:
     int get_size();
     int get_capacity();
     void set(int i,int data);
+    void print();
     ~ArrayList();
 };
 #endif

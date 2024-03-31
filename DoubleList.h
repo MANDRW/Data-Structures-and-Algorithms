@@ -1,9 +1,10 @@
 #ifndef MAIN_CPP_DOUBLE_LIST_H
 #define MAIN_CPP_DOUBLE_LIST_H
 #include "node_double.h"
+#include "base.h"
 #include<iostream>
 
-class DoubleList{
+class DoubleList:public Base{
 private:
     node_double* head = NULL;
     node_double* tail = NULL;
@@ -17,8 +18,8 @@ public:
     void del_front(); 
     void del(int i);
     int search(int data);
-    void print_data();
     int get_size();
+    void print();
     ~DoubleList();
 };
 #endif

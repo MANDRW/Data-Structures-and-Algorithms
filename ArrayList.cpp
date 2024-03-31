@@ -89,6 +89,12 @@ void ArrayList::set(int i, int data) {
     tab[i]=data;
 }
 
+void ArrayList::print() {
+    for(int i=0;size>i;i++)
+        cout<<tab[i]<<endl;
+    cout<<endl;
+}
+
 ArrayList::~ArrayList() {//destructor with deleting tab memory
     delete[] tab;
 }

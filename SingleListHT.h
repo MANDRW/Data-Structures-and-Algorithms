@@ -1,7 +1,8 @@
 #ifndef MAIN_CPP_SINGLELISTHT_H
 #define MAIN_CPP_SINGLELISTHT_H
+#include "base.h"
 #include "node_single.h"
-class SingleListHT{
+class SingleListHT:public Base{
 private:
     node_single*head = nullptr;
     node_single*tail = nullptr;
@@ -16,7 +17,7 @@ public:
     void del(int i);
     int search(int data);
     int get_size();
-    void print_all();
+    void print();
     ~SingleListHT();
 };
 

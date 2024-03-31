@@ -162,7 +162,7 @@ int SingleListHT::get_size()
 {
     return size;
 }
-void SingleListHT::print_all()
+void SingleListHT::print()
 {
     node_single* searched = head;
     {
