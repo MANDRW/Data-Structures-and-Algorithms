@@ -7,12 +7,14 @@
 #include<fstream>
 #include<ctime>
 #include<cstdio>
+#include <cstdlib>
 
 
 using namespace std;
 
 int main()
 {
+    srand(time(NULL));
     //5000, 8000, 10000, 16000, 20000, 40000, 60000, 100000
     //Ilośc ́różnych punktów pomiarowych (rozmiarów problemu) powinna wynosić ok.8,
     // aby uzyskać odpowiednie rezultaty możliwe do przeanalizowania.
@@ -23,7 +25,6 @@ int main()
     //– losowe miejsce tablicy (listy).
     //• W kontekście wyszukiwania – generujemy liczbę, której szukamy w strukturze.
     //Ui();
-    srand(time(NULL));
     int size_file=5000;
     fstream file;
     ArrayList**tab=new ArrayList * [100];
@@ -37,9 +38,9 @@ int main()
         for(int i=0;100>i;i++) tab[i]->push_back(temp);
 
     }
-    cout<<"ArrayList"<<endl;
+    cout<<"ArrayList: ";
      cout<<"Wczytano "<<size_file<<" danych z przedzialu <-10,10>, 1 plik"<<endl;
-    cout<<"Badanie na 50 strukturach"<<endl;
+    cout<<"Badanie na 100 strukturach"<<endl;
      int number=(rand()%21)-10;
      cout<<"Liczba dodana/usunieta: "<<number<<endl;
      //dodawanie na poczatku
