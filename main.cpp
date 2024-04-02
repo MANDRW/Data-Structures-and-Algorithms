@@ -30,9 +30,6 @@ int main()
     for(int i=0;100>i;i++) tab[i]=new ArrayList;
 
 
-
-    cout<<"ArrayList"<<endl<<endl;
-
     file.open("test_data_small.txt",ios::in);
     for (int i = 0; size_file > i and file.eof() != 1; i++) {
         int temp;
@@ -40,9 +37,9 @@ int main()
         for(int i=0;100>i;i++) tab[i]->push_back(temp);
 
     }
-
-     cout<<"Wczytano "<<size_file<<" danych z przedzialu <-10,10>, 1 plik"<<endl<<endl;
-    cout<<"Badanie na 50 strukturach"<<endl<<endl;
+    cout<<"ArrayList"<<endl;
+     cout<<"Wczytano "<<size_file<<" danych z przedzialu <-10,10>, 1 plik"<<endl;
+    cout<<"Badanie na 50 strukturach"<<endl;
      int number=(rand()%21)-10;
      cout<<"Liczba dodana/usunieta: "<<number<<endl;
      //dodawanie na poczatku
