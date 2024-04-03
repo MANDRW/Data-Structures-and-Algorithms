@@ -6,8 +6,9 @@
 #include "UI.h"
 #include<fstream>
 #include<ctime>
-#include<cstdio>
 #include <cstdlib>
+#include <stdio.h>
+#include <chrono>
 
 
 using namespace std;
@@ -25,74 +26,80 @@ int main()
     //– losowe miejsce tablicy (listy).
     //• W kontekście wyszukiwania – generujemy liczbę, której szukamy w strukturze.
     //Ui();
-    int size_file=5000;
-    fstream file;
-    ArrayList**tab=new ArrayList * [100];
-    for(int i=0;100>i;i++) tab[i]=new ArrayList;
 
+    int size_file=5000;
+    int number=-5;//(rand()%21)-10;
+    int random_push=4783;//rand()%size_file;
+    int random_del=1389;//rand()%size_file;
+    int random=0;//(rand()%21)-10;
+    fstream file;
+
+    ArrayList**tab=new ArrayList*[5];
+    for(int i=0;i<5;i++) tab[i]=new ArrayList;
 
     file.open("test_data_small.txt",ios::in);
     for (int i = 0; size_file > i and file.eof() != 1; i++) {
         int temp;
         file >> temp;
-        for(int i=0;100>i;i++) tab[i]->push_back(temp);
+        for(int i=0;5>i;i++) tab[i]->push_back(temp);
 
     }
     cout<<"ArrayList: ";
-     cout<<"Wczytano "<<size_file<<" danych z przedzialu <-10,10>, 1 plik"<<endl;
-    cout<<"Badanie na 100 strukturach"<<endl;
-     int number=(rand()%21)-10;
+     cout<<"Wczytano "<<size_file<<" danych z przedzialu <-10,10>"<<endl;
      cout<<"Liczba dodana/usunieta: "<<number<<endl;
-     //dodawanie na poczatku
-     clock_t start=clock();
-    for(int i=0;100>i;i++) tab[i]->push_front(number);
-     clock_t end=clock();
-     double time=double(end-start)/CLOCKS_PER_SEC;
-     cout<<"Czas dodania na poczatek: "<<time<<" ms"<<endl;
-    //usuwanie na poczatku
-    start=clock();
-    for(int i=0;100>i;i++) tab[i]->del_front();
-    end=clock();
-    time=double(end-start)/CLOCKS_PER_SEC;
-    cout<<"Czas usuniecia na poczatku: "<<time<<" ms"<<endl;
-    //dodawanie na koncu
-    start=clock();
-    for(int i=0;100>i;i++) tab[i]->push_back(number);
-    end=clock();
-    time=double(end-start)/CLOCKS_PER_SEC;
-    cout<<"Czas dodania na koniec: "<<time<<" ms"<<endl;
-    //usuwanie na koncu
-    start=clock();
-    for(int i=0;100>i;i++) tab[i]->del_back();
-    end=clock();
-    time=double(end-start)/CLOCKS_PER_SEC;
-    cout<<"Czas usuniecia na koncu: "<<time<<" ms"<<endl;
-    //dodawanie losowo
-    int random_push=rand()%size_file;
-    start=clock();
-    for(int i=0;100>i;i++) tab[i]->append(random_push,number);
-    end=clock();
-    time=double(end-start)/CLOCKS_PER_SEC;
-    cout<<"Index: "<<random_push<<endl;
-    cout<<"Czas dodania losowo: "<<time<<" ms"<<endl;
-     //usuwanie losowo
-    int random_del=rand()%size_file;
-    start=clock();
-    for(int i=0;100>i;i++) tab[i]->del(random_del);
-    end=clock();
-    time=double(end-start)/CLOCKS_PER_SEC;
-    cout<<"Index: "<<random_del<<endl;
-    cout<<"Czas usuwania losowo: "<<time<<" ms"<<endl;
-     //wyszukiwanie losowe
-    int random=(rand()%21)-10;
-    start=clock();
-    for(int i=0;100>i;i++) tab[i]->search(random);
-    end=clock();
-    time=double(end-start)/CLOCKS_PER_SEC;
-    cout<<"Szukana liczba: "<<random<<endl;
-    cout<<"Czas szukania losowo: "<<time<<" ms"<<endl;
 
-    for(int i=0;100>i;i++) delete tab[i];
+     //dodawanie na poczatku
+    auto begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->push_front(number);
+    auto end = std::chrono::high_resolution_clock::now();
+    auto time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+     cout<<"Czas dodania na poczatek: "<<time.count()/5<<" ns"<<endl;
+
+    //usuwanie na poczatku
+    begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->del_front();
+    end = std::chrono::high_resolution_clock::now();
+    time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+    cout<<"Czas usuniecia na poczatku: "<<time.count()/5<<" ns"<<endl;
+
+    //dodawanie na koncu
+    begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->push_back(number);
+    end = std::chrono::high_resolution_clock::now();
+    time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+    cout<<"Czas dodania na koniec: "<<time.count()/5<<" ns"<<endl;
+
+    //usuwanie na koncu*/
+    begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->del_back();
+    end = std::chrono::high_resolution_clock::now();
+    time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+    cout<<"Czas usuniecia na koncu: "<<time.count()/5<<" ns"<<endl;
+
+    //dodawanie losow
+    begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->append(random_push,number);
+    end = std::chrono::high_resolution_clock::now();
+    time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+    cout<<"Index: "<<random_push<<endl;
+    cout<<"Czas dodania losowo: "<<time.count()/5<<" ns"<<endl;
+     //usuwanie losowo
+    begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->del(random_del);
+    end = std::chrono::high_resolution_clock::now();
+    time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+    cout<<"Index: "<<random_del<<endl;
+    cout<<"Czas usuwania losowo: "<<time.count()/5<<" ns"<<endl;
+
+     //wyszukiwanie losowe
+    begin = std::chrono::high_resolution_clock::now();
+    for(int i=0;5>i;i++) tab[i]->search(random);
+    end = std::chrono::high_resolution_clock::now();
+    time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
+    cout<<"Szukana liczba: "<<random<<endl;
+    cout<<"Czas szukania losowo: "<<time.count()/5<<" ns"<<endl;
+
+    for(int i=0;5>i;i++) delete tab[i];
     delete[] tab;
 
     return(0);
