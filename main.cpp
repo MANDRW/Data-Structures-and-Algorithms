@@ -33,15 +33,15 @@ int main()
     int random_del=1389;//rand()%size_file;
     int random=0;//(rand()%21)-10;
     fstream file;
-
-    ArrayList**tab=new ArrayList*[5];
-    for(int i=0;i<5;i++) tab[i]=new ArrayList;
+    int q=50;
+    ArrayList**tab=new ArrayList*[q];
+    for(int i=0;i<q;i++) tab[i]=new ArrayList;
 
     file.open("test_data_small.txt",ios::in);
     for (int i = 0; size_file > i and file.eof() != 1; i++) {
         int temp;
         file >> temp;
-        for(int i=0;5>i;i++) tab[i]->push_back(temp);
+        for(int i=0;q>i;i++) tab[i]->push_back(temp);
 
     }
     cout<<"ArrayList: ";
@@ -50,56 +50,56 @@ int main()
 
      //dodawanie na poczatku
     auto begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->push_front(number);
+    for(int i=0;q>i;i++) tab[i]->push_front(number);
     auto end = std::chrono::high_resolution_clock::now();
     auto time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-     cout<<"Czas dodania na poczatek: "<<time.count()/5<<" ns"<<endl;
+     cout<<"Czas dodania na poczatek: "<<time.count()/q<<" ns"<<endl;
 
     //usuwanie na poczatku
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->del_front();
+    for(int i=0;q>i;i++) tab[i]->del_front();
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-    cout<<"Czas usuniecia na poczatku: "<<time.count()/5<<" ns"<<endl;
+    cout<<"Czas usuniecia na poczatku: "<<time.count()/q<<" ns"<<endl;
 
     //dodawanie na koncu
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->push_back(number);
+    for(int i=0;q>i;i++) tab[i]->push_back(number);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-    cout<<"Czas dodania na koniec: "<<time.count()/5<<" ns"<<endl;
+    cout<<"Czas dodania na koniec: "<<time.count()/q<<" ns"<<endl;
 
     //usuwanie na koncu*/
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->del_back();
+    for(int i=0;q>i;i++) tab[i]->del_back();
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-    cout<<"Czas usuniecia na koncu: "<<time.count()/5<<" ns"<<endl;
+    cout<<"Czas usuniecia na koncu: "<<time.count()/q<<" ns"<<endl;
 
     //dodawanie losow
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->append(random_push,number);
+    for(int i=0;q>i;i++) tab[i]->append(random_push,number);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
     cout<<"Index: "<<random_push<<endl;
-    cout<<"Czas dodania losowo: "<<time.count()/5<<" ns"<<endl;
+    cout<<"Czas dodania losowo: "<<time.count()/q<<" ns"<<endl;
      //usuwanie losowo
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->del(random_del);
+    for(int i=0;q>i;i++) tab[i]->del(random_del);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
     cout<<"Index: "<<random_del<<endl;
-    cout<<"Czas usuwania losowo: "<<time.count()/5<<" ns"<<endl;
+    cout<<"Czas usuwania losowo: "<<time.count()/q<<" ns"<<endl;
 
      //wyszukiwanie losowe
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;5>i;i++) tab[i]->search(random);
+    for(int i=0;q>i;i++) tab[i]->search(random);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
     cout<<"Szukana liczba: "<<random<<endl;
-    cout<<"Czas szukania losowo: "<<time.count()/5<<" ns"<<endl;
+    cout<<"Czas szukania losowo: "<<time.count()/q<<" ns"<<endl;
 
-    for(int i=0;5>i;i++) delete tab[i];
+    for(int i=0;q>i;i++) delete tab[i];
     delete[] tab;
 
     return(0);
