@@ -83,25 +83,22 @@ int main()
 
     //dodawanie losow
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;q>i;i++) tab[i]->append(random_push,number);
+    for(int i=0;q>i;i++) tab[i]->append(random_push[i],number);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-    cout<<"Index: "<<random_push<<endl;
     cout<<"Czas dodania losowo: "<<time.count()/q<<" ns"<<endl;
      //usuwanie losowo
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;q>i;i++) tab[i]->del(random_del);
+    for(int i=0;q>i;i++) tab[i]->del(random_del[i]);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-    cout<<"Index: "<<random_del<<endl;
     cout<<"Czas usuwania losowo: "<<time.count()/q<<" ns"<<endl;
 
      //wyszukiwanie losowe
     begin = std::chrono::high_resolution_clock::now();
-    for(int i=0;q>i;i++) tab[i]->search(random);
+    for(int i=0;q>i;i++) tab[i]->search(random[i]);
     end = std::chrono::high_resolution_clock::now();
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
-    cout<<"Szukana liczba: "<<random<<endl;
     cout<<"Czas szukania losowo: "<<time.count()/q<<" ns"<<endl;
 
     for(int i=0;q>i;i++) delete tab[i];
