@@ -26,14 +26,19 @@ int main()
     //– losowe miejsce tablicy (listy).
     //• W kontekście wyszukiwania – generujemy liczbę, której szukamy w strukturze.
     //Ui();
-
-    int size_file=5000;
-    int number=-5;//(rand()%21)-10;
-    int random_push=4783;//rand()%size_file;
-    int random_del=1389;//rand()%size_file;
-    int random=0;//(rand()%21)-10;
-    fstream file;
     int q=50;
+    int random_push[q];
+    int random_del[q];
+    int random[q];
+    for(int i=0;i<q;i++){
+        random_push[i]=rand()%size_file;
+        random_del[i]=rand()%size_file;
+        random[i]=(rand()%21)-10;
+
+    }
+    int size_file=5000;
+    int number=(rand()%21)-10;
+    fstream file;
     ArrayList**tab=new ArrayList*[q];
     for(int i=0;i<q;i++) tab[i]=new ArrayList;
 
