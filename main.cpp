@@ -15,17 +15,7 @@ using namespace std;
 
 int main()
 {
-    srand(time(NULL));
-    //5000, 8000, 10000, 16000, 20000, 40000, 60000, 100000
-    //Ilośc ́różnych punktów pomiarowych (rozmiarów problemu) powinna wynosić ok.8,
-    // aby uzyskać odpowiednie rezultaty możliwe do przeanalizowania.
-    // Podczas pomiaru czasu wykonywania, wyłączyć zbędne aplikacje.
-    //W przypadku tablicy i list rozpatrzeć osobno operacje dodawania i usuwania elementu na różnych pozycjach:
-    //– początek tablicy (listy),
-    //– koniec tablicy (listy),
-    //– losowe miejsce tablicy (listy).
-    //• W kontekście wyszukiwania – generujemy liczbę, której szukamy w strukturze.
-    //Ui();
+    /*srand(time(NULL));
     int size_file=100000;
     int q=50;
     int random_push[q];
@@ -34,19 +24,22 @@ int main()
     for(int i=0;i<q;i++){
         random_push[i]=rand()%size_file;
         random_del[i]=rand()%size_file;
-        random[i]=(rand()%101)+1000000000;
+        random[i]=
+                (rand()%101)+1000000000;
         //(rand()%21)-10;
     }
-    int number=(rand()%101)+1000000000;//(rand()%21)-10;
+    int number=
+            (rand()%101)+1000000000;
+            //(rand()%21)-10;
     fstream file;
-    ArrayList**tab=new ArrayList*[q];
-    for(int i=0;i<q;i++) tab[i]=new ArrayList;
+    DoubleList**tab=new DoubleList * [q];
+    for(int i=0;i<q;i++) tab[i]=new DoubleList;
 
     file.open("test_data_big.txt",ios::in);
     for (int i = 0; size_file > i and file.eof() != 1; i++) {
         int temp;
         file >> temp;
-        for(int i=0;q>i;i++) tab[i]->push_back(temp);
+        for(int i=0;q>i;i++) tab[i]->push_front(temp);
 
     }
     cout<<"ArrayList: ";
@@ -74,7 +67,7 @@ int main()
     time = std::chrono::duration_cast<std::chrono::nanoseconds >(end - begin);
     cout<<"Czas dodania na koniec: "<<time.count()/q<<" ns"<<endl;
 
-    //usuwanie na koncu*/
+    //usuwanie na koncu
     begin = std::chrono::high_resolution_clock::now();
     for(int i=0;q>i;i++) tab[i]->del_back();
     end = std::chrono::high_resolution_clock::now();
@@ -102,7 +95,7 @@ int main()
     cout<<"Czas szukania losowo: "<<time.count()/q<<" ns"<<endl;
 
     for(int i=0;q>i;i++) delete tab[i];
-    delete[] tab;
-
+    delete[] tab;*/
+    Ui();
     return(0);
 }
