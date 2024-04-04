@@ -14,7 +14,7 @@ using namespace std;
 
 void Ui() {
     while (true) {
-        int number, mode;
+        int number, mode;//mode==type of stucture, number==operation
         Base*tab;
         cout << "Wybierz strukture: " << endl;
         cout << "[1] Tablica dynamiczna" << endl;
@@ -25,8 +25,8 @@ void Ui() {
         cout << "Wybor: ";
         cin >> mode;
         cout << endl;
-        bool start = true;
-        switch (mode) {
+        bool start = true;//for closing ui
+        switch (mode) {//making structure
             case 1: {
                 ArrayList *t= new ArrayList;
                 tab=t;
@@ -101,7 +101,7 @@ void Ui() {
                     cout << "Podaj ilość danych: ";
                     cin >> number;
                     cout << endl;
-                    if (tab->get_size() != 0) {
+                    if (tab->get_size() != 0) {//deleting old structures
                         switch (mode) {
                             case 1: {
                                 delete tab;
@@ -131,7 +131,7 @@ void Ui() {
                         }
                     }
                     fstream file;
-                    file.open(name, ios::in);
+                    file.open(name, ios::in);//uploading data
                     for (int i = 0; number > i and file.eof() != 1; i++) {
                         int temp;
                         file >> temp;
@@ -146,7 +146,7 @@ void Ui() {
                     cout << "Podaj ilość danych: ";
                     cin >> number;
                     if (tab->get_size() != 0) {
-                        switch (mode) {
+                        switch (mode) {//deleting old stucture
                             case 1: {
                                 delete tab;
                                 ArrayList *temp = new ArrayList;
@@ -177,7 +177,7 @@ void Ui() {
                     int max;
                     cout << "Podaj najwieksza mozliwa liczbe: ";
                     cin >> max;
-                    for (int i = 0; number > i; i++) tab->push_back(rand() % (2 * max + 1) - max);
+                    for (int i = 0; number > i; i++) tab->push_back(rand() % (2 * max + 1) - max);//generating random numbers
                     cout << endl << "Wygenerowano z liczb z przedzialu <-" << max << "," << max << ">" << endl << endl;
                     break;
                 }

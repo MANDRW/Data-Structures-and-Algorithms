@@ -7,14 +7,14 @@ using namespace std;
 SingleListHead::SingleListHead(){};//constructor without arguments
 
 void SingleListHead::append(int i, int data) {
-    if(i==0){//when i==0 faster option is usinh push front than loop
+    if(i==0){//when i==0 faster option is using push front than loop
         push_front(data);
         return;
     }
     if(i==size) push_back(data);
     else{
         node_single*old=head;
-        for(int j=0;j<i-1;j++) old=old->next;
+        for(int j=0;j<i-1;j++) old=old->next;//searching node behind i
         node_single*node=new node_single;
         node->value=data;
         node->next=old->next;
@@ -35,7 +35,7 @@ void SingleListHead::push_back(int data) {
     if(head==NULL) push_front(data);
     else{
         node_single*old=head;
-        for(int j=0;j<size-1;j++) old=old->next;
+        for(int j=0;j<size-1;j++) old=old->next;//searching last node
         node_single*node=new node_single;
         node->value=data;
         node->next=NULL;
@@ -97,7 +97,7 @@ int SingleListHead::search(int data) {
         if(searched->value==data) return j+1;
         searched=searched->next;
     }
-    cout<<"Brak elementu"<<endl;
+    cout<<"Brak elementu"<<endl;//cout for ui
     return 0;
 }
 

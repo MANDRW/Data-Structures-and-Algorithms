@@ -1,7 +1,7 @@
 #ifndef MAIN_CPP_BASE_H
 #define MAIN_CPP_BASE_H
 
-class Base{
+class Base//base class for all data structures with virtual methods
 public:
     virtual void append(int i,int data)=0;
     virtual void push_back(int data)=0;

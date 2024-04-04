@@ -1,4 +1,4 @@
 #ifndef MAIN_CPP_UI_H
 #define MAIN_CPP_UI_H
-void Ui();
+void Ui();//ui function
 #endif
