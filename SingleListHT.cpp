@@ -16,7 +16,7 @@ void SingleListHT::push_front(int data)
     head = node;
     if(tail == nullptr)
     {
-        tail = node;
+        tail = node;   //warunek dla pustej listy
     }
     size++;
 }
@@ -33,7 +33,7 @@ void SingleListHT::push_back(int data)
     tail = node;
     if(head == nullptr)
     {
-        head = node;
+        head = node;  //warunek dla pustej listy
     }
     size++;
 }
@@ -44,7 +44,7 @@ void SingleListHT::del_front()
     {
         return;
     }
-    if(head == tail)
+    if(head == tail)   //warunek przy jednym elemencie
     {
         delete head;
         head = nullptr;
