@@ -1,5 +1,10 @@
-# StrukturyDanychProjekt2
-Priority queues based on array list and heap and tests.
-So guys we did it we made a project and report. ;-)
+# Priority Queues Comparison
+Comparative study of two MAX Priority Queue implementations.
 
-![](https://github.com/Myjem/StrukturyDanychProjekt2/blob/main/yipee.gif)
+- **Implementations**:
+  - **HeapQueue**: Based on a binary heap, implemented on a dynamic array template.
+  - **ArrayQueue**: Based on an unsorted dynamic array (optimized for $O(1)$ amortized insertion).
+- **Analysis**:
+  - Comparison of operations: `insert`, `extract_max`, `find_max`, and `modify_priority`.
+
+*Status: Collaborative project.*
