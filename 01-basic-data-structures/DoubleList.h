@@ -1,0 +1,25 @@
+#ifndef MAIN_CPP_DOUBLE_LIST_H
+#define MAIN_CPP_DOUBLE_LIST_H
+#include "node_double.h"
+#include "base.h"
+#include<iostream>
+
+class DoubleList:public Base{
+private:
+    node_double* head = NULL;
+    node_double* tail = NULL;
+    int size = 0;
+public:
+    DoubleList();
+    void append(int i,int data);
+    void push_back(int data);
+    void del_back();
+    void push_front(int data);
+    void del_front(); 
+    void del(int i);
+    int search(int data);
+    int get_size();
+    void print();
+    ~DoubleList();
+};
+#endif
